@@ -1,0 +1,17 @@
+{
+  "name": "fisher-yates",
+  "version": "1.0.0",
+  "description": "Array shuffling made easy with the Fisher-Yates algorithm",
+  "scripts": {
+    "build": "terser fisher-yates.js -c -m reserved=['FisherYates'] > fisher-yates.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ogus/fisher-yates.git"
+  },
+  "author": "Ogus",
+  "license": "ISC",
+  "devDependencies": {
+    "terser": "^3.9.2"
+  }
+}
