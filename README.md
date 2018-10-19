@@ -10,7 +10,7 @@ This module has no dependencies.
 
 ## Usage
 
-### Shuffle an array
+### Basic shuffling
 
 To shuffle an array object, use the `shuffle()` method from the static class `FisherYates` :
 
@@ -28,7 +28,7 @@ var shuffled = FisherYates.shuffle(array);
 
 **Warning :** The method creates and returns a *shallow* copy of the input array
 
-### Basic shuffling
+### Async shuffling
 
 The `FisherYates` object provides another method that return a `Promise` instead of the array itself.
 
