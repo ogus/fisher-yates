@@ -12,7 +12,7 @@
   /**
    * Fisher-Yates shuffling algorithm
    * Compute an in-place shuffle of the elements contained in an Array
-   * 
+   *
    * @param {Array} array Input data
    * @return {Array} Shuffled array
    */
@@ -21,17 +21,18 @@
       return array;
     }
 
+    let result = Array.from(array);
     let i = 0, j = 0, t = null;
-    for (i = array.length-1; i > 0; i--) {
+    for (i = result.length-1; i > 0; i--) {
       // Compute random index
       j = Math.floor(Math.random() * (i+1));
 
       // Swap elements i & j
-      t = array[i];
-      array[i] = array[j];
-      array[j] = t;
+      t = result[i];
+      result[i] = result[j];
+      result[j] = t;
     }
-    return array;
+    return result;
   }
 
   // Object definition
