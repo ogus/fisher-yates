@@ -1,17 +1,27 @@
 {
-  "name": "fisher-yates",
+  "name": "shuffling",
   "version": "1.0.0",
-  "description": "Array shuffling made easy with the Fisher-Yates algorithm",
+  "description": "A simple module to shuffle any sequence with the Fisher-Yates algorithm",
+  "author": "Ogus",
+  "license": "WTFPL",
+  "main": "src/shuffling.js",
   "scripts": {
-    "build": "terser fisher-yates.js -c -m reserved=['FisherYates'] > fisher-yates.min.js"
+    "build": "terser src/shuffling.js -c -m reserved=['Shuffling'] > src/shuffling.min.js"
   },
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  },
+  "keywords": [
+    "array",
+    "sequence",
+    "shuffle",
+    "shuffling",
+    "fisher-yates",
+    "permutation"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ogus/fisher-yates.git"
+    "url": "https://github.com/ogus/shuffling.git"
   },
-  "author": "Ogus",
-  "license": "ISC",
-  "devDependencies": {
-    "terser": "^3.9.2"
-  }
+  "homepage": "https://github.com/ogus/shuffling#readme"
 }
