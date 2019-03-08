@@ -2,7 +2,7 @@
   if (typeof define === 'function' && define.amd) { define([], factory); }
   else if (typeof module === 'object' && module.exports) { module.exports = factory(); }
   else { root.Shuffling = factory(); }
-}(this, function () {
+}(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
 
   /**
@@ -13,8 +13,8 @@
    * @return {Array} Shuffled array
    */
   function shuffle(sequence) {
-    let result = Array.from(sequence);
-    let i = 0, j = 0, t = null;
+    var result = Array.from(sequence);
+    var i = 0, j = 0, t = null;
     for (i = result.length-1; i > 0; i--) {
       // Compute random index
       j = Math.floor(Math.random() * (i+1));
@@ -28,13 +28,19 @@
 
   // Object definition
   var Shuffling = {
-    shuffle: function (sequence) {
-      return suffle(sequence);
+    shuffle: function (sequence, async) {
+      if (!async) {
+        return suffle(sequence);
+      }
+      return new Promise(function(resolve, reject) {
+        var result = shuffle(sequence);
+        resolve(result);
+      });
     },
 
     suffle_async: function (sequence) {
       return new Promise(function(resolve, reject) {
-        let result = shuffle(sequence);
+        var result = shuffle(sequence);
         resolve(result);
       });
     }
@@ -43,7 +49,7 @@
   // Worker message
   if (typeof self !== "undefined") {
     self.onmessage = function(e) {
-      let result = shuffle(e.data);
+      var result = shuffle(e.data);
       postMessage(result);
     }
   }
